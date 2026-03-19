@@ -161,9 +161,9 @@
             background: linear-gradient(135deg, rgba(255, 69, 0, 0.1) 0%, rgba(255, 69, 0, 0.05) 100%);
             border: 2px solid rgba(255, 69, 0, 0.3);
             border-radius: 20px;
-            padding: 40px 50px;
+            padding: 30px 40px;
             text-align: center;
-            min-width: 280px;
+            min-width: 240px;
             backdrop-filter: blur(10px);
         }
         
@@ -258,6 +258,55 @@
             line-height: 1.6;
         }
         
+        /* 案例展示 */
+        .case-section {
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .case-title {
+            font-size: 32px;
+            color: #fff;
+            margin-bottom: 30px;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+        
+        .case-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff4500, transparent);
+            margin-top: 15px;
+        }
+        
+        .case-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .case-item {
+            background: linear-gradient(135deg, rgba(255, 69, 0, 0.08) 0%, rgba(255, 69, 0, 0.02) 100%);
+            border-left: 4px solid #ff4500;
+            padding: 24px 30px;
+            border-radius: 0 16px 16px 0;
+        }
+        
+        .case-name {
+            font-size: 26px;
+            color: #ff6b35;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .case-type {
+            font-size: 18px;
+            color: #606070;
+            font-weight: 400;
+        }
+        
         /* 底部信息 */
         .footer {
             margin-top: 80px;
@@ -339,9 +388,9 @@
         <div class="corner-deco corner-br"></div>
         
         <div class="content">
-            <!-- 赛道标识 -->
+            <!-- 项目标签 -->
             <div class="track-badge">
-                生产力龙虾 · 中关村北纬龙虾大赛
+                OpenClaw Skill · AI Product Engineer
             </div>
             
             <!-- 主标题 -->
@@ -358,12 +407,12 @@
             <!-- 核心数据 -->
             <div class="stats">
                 <div class="stat-item">
-                    <div class="stat-value">+60%</div>
-                    <div class="stat-label">效率提升</div>
+                    <div class="stat-value">3+</div>
+                    <div class="stat-label">实战案例</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-value">-80%</div>
-                    <div class="stat-label">返工率降低</div>
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">核心能力</div>
                 </div>
             </div>
             
@@ -392,6 +441,25 @@
                 </div>
             </div>
             
+            <!-- 案例展示 -->
+            <div class="case-section">
+                <div class="case-title">实战案例</div>
+                <div class="case-list">
+                    <div class="case-item">
+                        <div class="case-name">电商后台管理系统</div>
+                        <div class="case-type">从"简单后台"到完整规格文档 · 3轮澄清</div>
+                    </div>
+                    <div class="case-item">
+                        <div class="case-name">芯片封装几何建模</div>
+                        <div class="case-type">参数化抽象 + 布尔运算矩阵确认 · 工业级复杂需求</div>
+                    </div>
+                    <div class="case-item">
+                        <div class="case-name">猫咪领养海报生成器</div>
+                        <div class="case-type">先做功课提供风格建议 · 32种设计风格</div>
+                    </div>
+                </div>
+            </div>
+            
             <!-- 底部 -->
             <div class="footer">
                 <div class="tech-stack">
@@ -400,7 +468,7 @@
                     <span class="tech-badge">Product Engineering</span>
                 </div>
                 <div class="github-info">
-                    github.com/openclaw/requirement-clarifier · <span>MIT License</span>
+                    github.com/EvianEvans/requirement-clarifier · <span>MIT License</span>
                 </div>
             </div>
         </div>
