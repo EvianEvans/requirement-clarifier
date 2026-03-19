@@ -19,7 +19,7 @@ An OpenClaw Skill for interactive requirement clarification. Inspired by product
 
 ---
 
-## ✨ 三大核心功能
+## ✨ 三大核心能力
 
 ### 1️⃣ 渐进引导 Progressive Guidance
 - **简单需求**：分轮次提问，快速对齐（每轮2-3个核心问题）
@@ -250,7 +250,7 @@ MIT License - See [LICENSE](LICENSE) file for details
 
 ## 👤 Author
 
-Created by ReqCatcher Team.
+Created with ❤️ for the OpenClaw ecosystem.
 
 🦞 **Think twice, code once.**
 
