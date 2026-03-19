@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>需求捕手 ReqCatcher - 项目海报</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background: #1a1a2e;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        /* A4 竖版 210mm x 297mm @ 150dpi */
+        .poster {
+            width: 1240px;
+            height: 1754px;
+            background: linear-gradient(135deg, #0d0d1a 0%, #1a1a2e 50%, #16213e 100%);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 50px 100px rgba(0,0,0,0.5);
+        }
+        
+        /* 背景装饰 */
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(255, 69, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 69, 0, 0.08) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 49%, rgba(255, 69, 0, 0.03) 50%, transparent 51%);
+            background-size: 100% 100%, 100% 100%, 60px 60px;
+        }
+        
+        .grid-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(255, 69, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 69, 0, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        /* 龙虾元素装饰 */
+        .lobster-deco {
+            position: absolute;
+            opacity: 0.08;
+            font-size: 400px;
+            right: -100px;
+            top: 200px;
+            transform: rotate(-15deg);
+            filter: drop-shadow(0 0 50px rgba(255, 69, 0, 0.5));
+        }
+        
+        .lobster-deco-bottom {
+            position: absolute;
+            opacity: 0.05;
+            font-size: 300px;
+            left: -80px;
+            bottom: 100px;
+            transform: rotate(15deg);
+        }
+        
+        /* 主内容区 */
+        .content {
+            position: relative;
+            z-index: 10;
+            padding: 80px 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* 顶部赛道标识 */
+        .track-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #ff4500 0%, #ff6347 100%);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-size: 24px;
+            font-weight: 700;
+            align-self: flex-start;
+            box-shadow: 0 10px 40px rgba(255, 69, 0, 0.4);
+            margin-bottom: 60px;
+        }
+        
+        .track-badge::before {
+            content: "🦞";
+            font-size: 32px;
+        }
+        
+        /* 主标题 */
+        .main-title {
+            margin-bottom: 20px;
+        }
+        
+        .title-cn {
+            font-size: 120px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ff4500 0%, #ff6b35 50%, #ff8c42 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 10px;
+            text-shadow: 0 0 80px rgba(255, 69, 0, 0.3);
+            line-height: 1.1;
+        }
+        
+        .title-en {
+            font-size: 72px;
+            font-weight: 300;
+            color: #fff;
+            letter-spacing: 15px;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+        
+        /* 副标题 */
+        .subtitle {
+            font-size: 42px;
+            color: #a0a0b0;
+            font-weight: 300;
+            margin: 40px 0 60px;
+            letter-spacing: 5px;
+        }
+        
+        .subtitle span {
+            color: #ff6b35;
+            font-weight: 400;
+        }
+        
+        /* 核心数据 */
+        .stats {
+            display: flex;
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+        
+        .stat-item {
+            background: linear-gradient(135deg, rgba(255, 69, 0, 0.1) 0%, rgba(255, 69, 0, 0.05) 100%);
+            border: 2px solid rgba(255, 69, 0, 0.3);
+            border-radius: 20px;
+            padding: 40px 50px;
+            text-align: center;
+            min-width: 280px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat-value {
+            font-size: 80px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ff4500 0%, #ff8c42 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 28px;
+            color: #a0a0b0;
+            margin-top: 15px;
+            font-weight: 300;
+        }
+        
+        /* 功能展示 */
+        .features {
+            margin-top: auto;
+        }
+        
+        .features-title {
+            font-size: 36px;
+            color: #fff;
+            margin-bottom: 40px;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+        
+        .features-title::after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff4500, transparent);
+            margin-top: 15px;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 50px 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff4500, #ff8c42);
+        }
+        
+        .feature-icon {
+            font-size: 64px;
+            margin-bottom: 25px;
+        }
+        
+        .feature-title {
+            font-size: 36px;
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .feature-subtitle {
+            font-size: 22px;
+            color: #ff6b35;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+        
+        .feature-desc {
+            font-size: 22px;
+            color: #808090;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+        
+        /* 底部信息 */
+        .footer {
+            margin-top: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .tech-stack {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .tech-badge {
+            background: rgba(255, 69, 0, 0.2);
+            color: #ff8c42;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 20px;
+            font-weight: 500;
+            border: 1px solid rgba(255, 69, 0, 0.3);
+        }
+        
+        .github-info {
+            color: #606070;
+            font-size: 20px;
+        }
+        
+        .github-info span {
+            color: #ff6b35;
+        }
+        
+        /* 角落装饰 */
+        .corner-deco {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 2px solid rgba(255, 69, 0, 0.2);
+        }
+        
+        .corner-tl {
+            top: 40px;
+            left: 40px;
+            border-right: none;
+            border-bottom: none;
+        }
+        
+        .corner-br {
+            bottom: 40px;
+            right: 40px;
+            border-left: none;
+            border-top: none;
+        }
+        
+        /* 打印样式 */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .poster {
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <div class="bg-pattern"></div>
+        <div class="grid-lines"></div>
+        <div class="lobster-deco">🦞</div>
+        <div class="lobster-deco-bottom">🦞</div>
+        
+        <div class="corner-deco corner-tl"></div>
+        <div class="corner-deco corner-br"></div>
+        
+        <div class="content">
+            <!-- 赛道标识 -->
+            <div class="track-badge">
+                生产力龙虾 · 中关村北纬龙虾大赛
+            </div>
+            
+            <!-- 主标题 -->
+            <div class="main-title">
+                <div class="title-cn">需求捕手</div>
+                <div class="title-en">ReqCatcher</div>
+            </div>
+            
+            <!-- 副标题 -->
+            <div class="subtitle">
+                你的 <span>AI 产品架构师</span> · 模糊需求终结者
+            </div>
+            
+            <!-- 核心数据 -->
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-value">+60%</div>
+                    <div class="stat-label">效率提升</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">-80%</div>
+                    <div class="stat-label">返工率降低</div>
+                </div>
+            </div>
+            
+            <!-- 功能展示 -->
+            <div class="features">
+                <div class="features-title">核心能力</div>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <div class="feature-title">渐进引导</div>
+                        <div class="feature-subtitle">Progressive Guidance</div>
+                        <div class="feature-desc">简单需求问卷速配<br>复杂需求对话深入<br>自适应策略切换</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚙️</div>
+                        <div class="feature-title">参数化抽象</div>
+                        <div class="feature-subtitle">Parametric Abstraction</div>
+                        <div class="feature-desc">变量与固定值识别<br>参数联动规则定义<br>边界条件显性化</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <div class="feature-title">毒舌纠偏</div>
+                        <div class="feature-subtitle">Brutal Honesty</div>
+                        <div class="feature-desc">不可行直接打回<br>强制二选一方案<br>零委婉零猜测</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 底部 -->
+            <div class="footer">
+                <div class="tech-stack">
+                    <span class="tech-badge">OpenClaw Skill</span>
+                    <span class="tech-badge">AI Agent</span>
+                    <span class="tech-badge">Product Engineering</span>
+                </div>
+                <div class="github-info">
+                    github.com/openclaw/requirement-clarifier · <span>MIT License</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
